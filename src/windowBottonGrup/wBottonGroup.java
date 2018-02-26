@@ -8,7 +8,8 @@ public class wBottonGroup extends JFrame implements ActionListener {
     private final static String CANCELAR = "Cancelar";
 
     public wBottonGroup(String titulo) {
-        //CreacioÌn de los RadioButtons
+        
+       //Creamos los radio buttons
         JRadioButton birdButton = new JRadioButton("Pajarito");
         birdButton.setMnemonic(KeyEvent.VK_B);
         birdButton.setActionCommand("bird");
@@ -29,7 +30,7 @@ public class wBottonGroup extends JFrame implements ActionListener {
         JRadioButton pigButton = new JRadioButton("Cerdito");
         pigButton.setMnemonic(KeyEvent.VK_P);
         pigButton.setActionCommand("pig");
-
+//creanos el que el buttonGrpup esto es para agrupar los botones
         ButtonGroup btgAnimalitos = new ButtonGroup();
 
         btgAnimalitos.add(birdButton);
@@ -37,16 +38,18 @@ public class wBottonGroup extends JFrame implements ActionListener {
         btgAnimalitos.add(dogButton);
         btgAnimalitos.add(rabbitButton);
         btgAnimalitos.add(pigButton);
-
+ //reservamos para los radio panel
         JPanel radioPanel = new JPanel();
+        //le indicamos al GridLayou cuantas filas y columnas vamos a querer para el radio panel.
         radioPanel.setLayout(new GridLayout(0,1));
+        //agregamos cada unos de los botones ya creados anteriormente al panel
         radioPanel.add(birdButton);
         radioPanel.add(catButton);
         radioPanel.add(dogButton);
         radioPanel.add(rabbitButton);
         radioPanel.add(pigButton);
         radioPanel.setBackground(Color.RED);
-
+         // agregamos la img del lorito!
         JLabel picture = new JLabel(new ImageIcon("src/loro.png"));
 
         JPanel SubPanel1 = new JPanel();
@@ -54,7 +57,7 @@ public class wBottonGroup extends JFrame implements ActionListener {
         SubPanel1.add(radioPanel);
         SubPanel1.add(picture);
         SubPanel1.setBackground(Color.BLUE);
-
+         //creamos los botones salir y aceptar y estos tendrán cierto comportamiento.
         JButton Aceptar = new JButton("ACEPTAR");
         JButton Salir = new JButton("SALIR");
         Aceptar.setActionCommand(ACEPTAR);
@@ -64,10 +67,10 @@ public class wBottonGroup extends JFrame implements ActionListener {
 
         JPanel SubPanel2 = new JPanel();
         SubPanel2.setLayout(null);
-
+        //aplicamos ancho, alto, x ,y a los botones
         Aceptar.setBounds(15, 30, 100, 30);
         Salir.setBounds(215, 30, 100, 30);
-
+        //los añadimos al panel 2 para que se puedan acomodar en la parte inferior
         SubPanel2.add(Aceptar);
         SubPanel2.add(Salir);
 
@@ -80,7 +83,7 @@ public class wBottonGroup extends JFrame implements ActionListener {
 
         setTitle(titulo);
     }
-
+    //ponemos el metodo actionPerformed para que nos detecte si el boton fue presionado.
     public void actionPerformed(ActionEvent e) {
         System.out.println("Evento producido por " + e.getActionCommand());
         String comando = e.getActionCommand();
